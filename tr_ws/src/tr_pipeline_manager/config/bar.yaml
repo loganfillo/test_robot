@@ -1,0 +1,12 @@
+pipeline_manager:
+  ros__parameters:
+    pipeline:
+      components:
+      - bar_pipeline::ComponentOne
+      - bar_pipeline::ComponentTwo
+      - bar_pipeline::ComponentThree
+      namespace: /tr/bar
+      pkg_name: tr_bar_pipeline
+      remap_rules:
+      - /tr/bar/component_one/in:=/tr/drivers/camera/front/image
+    use_sim_time: false
