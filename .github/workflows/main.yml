@@ -8,16 +8,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: ros:foxy
+    runs-on: ubuntu-20.04
+    # container: ros:foxy
 
     steps:
 
-      # Check out repo
-      - uses: actions/checkout@v2
+      - name: Check out repo
+        uses: actions/checkout@v2
 
-      # Setup ROS2 system deps
-      - uses: ros-tooling/setup-ros@0.0.25
+      - name: Setup ROS2 system deps and distro
+        uses: ros-tooling/setup-ros@0.0.25
+        with: 
+          required-ros-distributions: foxy
 
       - name: Change dir to ROS2 workspace
         run: cd tr_ws
