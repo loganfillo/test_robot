@@ -21,16 +21,12 @@ jobs:
         with: 
           required-ros-distributions: foxy
 
-      - name: Change dir to ROS2 workspace
-        run: cd tr_ws
-
       - name: Install deps with rosdep
         run: |
-          pwd
+          cd tr_ws
           rosdep update
           rosdep install -i --from-path src --rosdistro foxy -y
           
-
       - name: Build with colcon
         run: colcon build
 
