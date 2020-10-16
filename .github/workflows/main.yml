@@ -24,7 +24,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Build the repo
+      - name: Install deps
+        run: cd tr_ws && rosdep install -i --from-path src --rosdistro foxy -y
+        
+      # Runs a single command using the runners shell
+      - name: Build
         run: colcon build
 
       # Runs a set of commands using the runners shell
