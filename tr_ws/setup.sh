@@ -19,6 +19,8 @@ sudo apt install ros-foxy-desktop
 source /opt/ros/foxy/setup.bash
 sudo apt install python3-argcomplete
 
+echo "HELLO"
+
 # Install rosdep 
 sudo apt install python3-rosdep2
 rosdep update
