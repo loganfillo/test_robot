@@ -13,22 +13,21 @@ jobs:
 
     steps:
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Check out repo
       - uses: actions/checkout@v2
+
+      # Setup ROS2 system deps
+      - uses: ros-tooling/setup-ros@0.0.25
 
       - name: Change dir to ROS2 workspace
         run: cd tr_ws
 
       - name: Install deps with rosdep
-        run: |
-          sudo apt install python3-rosdep2
-          rosdep update
-          rosdep install -i --from-path src --rosdistro foxy -y
+        run: rosdep install -i --from-path src --rosdistro foxy -y
+          
 
       - name: Build with colcon
-        run: |
-          sudo apt install python3-colcon-common-extensions
-          colcon build
+        run: colcon build
 
       - name: Source local install
         run: source install/setup.bash
