@@ -26,6 +26,7 @@ jobs:
 
       - name: Install deps with rosdep
         run: |
+          pwd
           rosdep update
           rosdep install -i --from-path src --rosdistro foxy -y
           
