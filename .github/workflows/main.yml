@@ -25,7 +25,9 @@ jobs:
         run: cd tr_ws
 
       - name: Install deps with rosdep
-        run: rosdep install -i --from-path src --rosdistro foxy -y
+        run: |
+          rosdep init
+          rosdep install -i --from-path src --rosdistro foxy -y
           
 
       - name: Build with colcon
